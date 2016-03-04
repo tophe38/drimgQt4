@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>Drive image usage</title>
+  
+  <meta content="P Putnik" name="author">
+  <meta content="Instrucions for programm" name="description"></head>
+<body style="background-image: url(bgr.png);">
+<div style="text-align: center;"><big style="color: rgb(0, 0, 153);"><big><span style="font-weight: bold;"><big><span style="color: rgb(102, 51, 51);">Usage
+of program Drive image &amp; ZX file
+transfer</span></big><br>
+</span></big></big>
+<div style="text-align: left;">
+<div align="center"><big><big>Linux version</big></big><br>
+</div>
+<big style="color: rgb(0, 0, 153);"><br>
+<span style="color: rgb(0, 0, 102);">Purpose is making copy of </span><span style="font-weight: bold; color: rgb(0, 0, 102);">media</span><span style="color: rgb(0, 0, 102);">
+(drive, disk) in form of </span><span style="font-weight: bold; color: rgb(0, 0, 102);">image</span><span style="color: rgb(0, 0, 102);">
+file, and reverse operation - copiing from image to media. Such image
+files are useful as backups, as images suitable for diverse emulators.
+Program works with hard drive category of medias - there belong: IDE
+hard disks, PEN drives, diverse FLASH storage cards as Compact Flash -
+they attach usually via some USB card reader to PC. &nbsp; <big><span style="font-weight: bold;">File transfer</span></big> may happen
+directly from/to attached disk/media, or from/to image file.</span><img alt="drimlin1.png" src="drimlin1.png" style="border: 4px solid ; color: rgb(0, 0, 102);" align="left" border="4" height="400" hspace="8" vspace="8" width="620"><br style="color: rgb(0, 0, 102);">
+<span style="text-decoration: underline; color: rgb(0, 0, 102);">Refresh</span><span style="color: rgb(0, 0, 102);"> button is for
+forcing detection of all drives again - in case you
+connected/disconnected something.&nbsp; Under it you may set offset
+from start of disks and count of sectors if want to read/write only
+segment of drive.</span><br style="color: rgb(0, 0, 102);">
+</big><big style="color: rgb(0, 0, 102);">Selection of drive is by
+simple
+click
+on it's line in list window left.</big><big style="color: rgb(0, 0, 102);">
+Then program attempts to detect used filesystem on that media - 'DOS
+mbr' means usually that it is hard disk in PC - so better don't write
+to it! PLUSIDEDOS&nbsp; is used by Spectrum +3e and some other clones.
+'Charea DoS' is mine system, with 36 areas by begin letter A-Z, 0-9.<br>
+Because it is not possible to detect correct CHS parameters via USB
+reader, there is possibility to enter them manually. Program usually
+offers usable values for Compact Flash cards. With click on '<span style="text-decoration: underline;">Size CHS</span>' user may change
+detected drive's size, by need (after entering CHS manually). That
+size remains until next drive selection. '<span style="text-decoration: underline;">LBA</span>' is required only for
+disk <u>Init</u>, see below.<br>
+&nbsp;
+With click on '<span style="text-decoration: underline;">Open image file</span>'
+you may select image file instead drive. You may then perform even
+conversion RAW(IMG)-HDF or HDF-RAW(IMG). Just click after selecting image file on
+'<span style="text-decoration: underline;">Read from drive</span>', and
+program will convert. Program gets CHS parameters from hdf files, but
+for
+RAW or IMG ones it is not possible (except when Charea DoS FS is on, see below -
+<u>Guess geo</u>.) , so enter them manually by need&nbsp; - in case
+of (older) image files for usage with CHS ROMs.<br>Limitations: works only in&nbsp; newer Linux versions. Tested with Kernel 2.6x. </big><big style="color: rgb(0, 0, 153);"><span style="color: rgb(0, 0, 102);">Must be </span><span style="font-weight: bold; color: rgb(0, 0, 102);">root</span><span style="color: rgb(0, 0, 102);"> (su)
+to read/write on drives. In user mode extraction/adding from/to images is possible.</span><br style="color: rgb(0, 0, 102);">
+<span style="color: rgb(0, 0, 102);">Speed: it should work pretty fast
+with USB 2.0 card readers. Speed
+depends much from used media. Newer CF cards can read over 2 MB/sec.
+Write is usually slower 2-3 times than read. New PEN drives are&nbsp;
+even faster - read over 5MB/sec. </span><br>
+</big><big style="color: rgb(0, 0, 153);"><br>
+</big>
+<div style="text-align: center;"><big style="color: rgb(102, 51, 51);"><big><span style="font-weight: bold;">Atari ST GemDos disk file transfer<br>
+<br>
+</span></big></big>
+</div>
+<big style="color: rgb(0, 0, 153);">When GemDos(or Dos FAT16, BigDos) type partition system
+is detected, following dialog will open after clicking on '<span style="text-decoration: underline;">File transfer</span>' :<br>
+<img alt="gemdfbt.png" src="gemdfbt.png" align="left" border="4" height="472" hspace="8" vspace="8" width="500"><br>&nbsp;It works with GemDos AHDI 3.0 spec
+partitioned hard disks, medias or image files of them (img, raw) . Plus works with Dos FAT16 and BigDos partitions.<br>
+<br>
+Select partition in right box, and program will list root directory of
+it in left box.<br>
+May select multiple files, directories at once. With '<span style="text-decoration: underline;">Extract</span>' all it
+(with subdirectories and their content) will be copied in current
+directory on PC, which may be selected with '<span style="text-decoration: underline;">Dest Dir</span>' button.<br>
+<br>
+Buttons '<span style="text-decoration: underline;">Dir Up</span>' and '<span style="text-decoration: underline;">Open Dir</span>' are for
+navigation in GemDos partition's directories.<br>
+Subdir can be opened with double-click on it's name too.<br>
+<br>
+'<span style="text-decoration: underline;">Add files</span>' 
+: It is of course for copiing files from PC to attached
+disk/media or to image file. May add multiple files at once, but not subdirectories with their content.
+Below is selectable whether timestamp of added files will be current time or origin file's time.<br><br>
+'<span style="text-decoration: underline;">New folder.</span>' 
+:  creates subDir by name given in editbox below - in current ST dir. Use capital letters.<br>
+<br>
+Button '<span style="text-decoration: underline;">Partitions:</span>' is for extracting image file of only selected partition. From drive or image file.<br>
+<br>
+<br>
+Currently, it works with AHDI spec. disks </big><big style="color: rgb(0, 0, 153);">only </big><big style="color: rgb(0, 0, 153);">in non-reversed High/Low
+byte format.<br>
+Plans are to add: work with reversed High/Low - for disks used with IDE
+interface on ST. Support for DOS type partitined disks - in normal and
+reversed format.</big><br>
+<big style="color: rgb(0, 0, 153);"><br>
+<br clear="all">
+</big>
+<div style="text-align: center;"><big style="color: rgb(0, 0, 153);"><big><span style="font-weight: bold;"><span style="color: rgb(102, 51, 51);">ZX
+file transfer:<br>
+<br>
+</span></span></big></big>
+<div style="text-align: left;"><big style="color: rgb(0, 0, 153);"><span style="font-weight: bold; color: rgb(51, 0, 51);"><span style="color: rgb(51, 51, 255);">Before
+clicking on 'File transfer' button be sure that Image format is correct
+set. Program usually automatically sets it, but sometimes user will
+need to manually set it. For 8-bit simple IF drives or images must set
+HDF 256.<br>
+<br>
+</span></span></big><big style="color: rgb(0, 0, 153);"><big><span style="font-weight: bold;"><span style="color: rgb(102, 51, 51);"></span></span></big></big></div>
+<big style="color: rgb(0, 0, 153);"><big><span style="font-weight: bold;"></span></big></big>
+<div style="text-align: left;"><big style="color: rgb(0, 0, 153);"><big><span style="font-weight: bold;"></span></big><span style="font-weight: bold; color: rgb(51, 0, 51);">ZX &gt; PC:</span></big><br>
+<big style="color: rgb(0, 0, 153);"><big><span style="font-weight: bold;"></span></big></big></div>
+</div>
+<big style="color: rgb(0, 0, 102);"><big><small>User may extract ZX
+files from drives or image files (raw or hdf
+format). After selecting drive from list or file with '<span style="text-decoration: underline;">Open image file</span>' click on
+'<span style="text-decoration: underline;">File transfer</span>' - it
+is designed for Charea DoS system, used by hard
+disk and CF ROMs (zxcflba.rom, zx8bide.rom &amp; zxide.rom) on <span style="font-weight: bold;">this site</span>.
+If you get mess instead lists probably CHS is incorrect. For LBA it is
+'standard' 32 Sector/track and 8 Heads. Clicking on '<span style="text-decoration: underline;">Guess geo.</span>' may detect and
+set correct drive geometry.<br>
+<img alt="png" src="drimlin2.png" style="border: 4px solid ;" align="middle" border="4" height="376" hspace="8" vspace="8" width="704"><br>
+At left </small></big></big><big style="color: rgb(0, 0, 102);"><big><small>select</small></big></big><big style="color: rgb(0, 0, 153);"><big style="color: rgb(0, 0, 102);"><small>
+Charea, then clicking on
+files in middle box selects them for transfer - they appear in right
+box. With '<span style="text-decoration: underline;">Save sel.</span>'
+it will be transferred to PC.<br>
+Resulting file may be <span style="font-weight: bold;">TAP</span> file
+, <span style="font-weight: bold;">Z80</span> snapshot.&nbsp; If
+length ( last
+column
+at Cat: )&nbsp; is 49152 it will be Z80. It is possible to save ZX
+files directly, without header - just check '<span style="text-decoration: underline;">Save bin.</span>', and all will be
+saved so, with extensions <big><span style="font-weight: bold;">bin</span></big>.
+You may select max 32 files at
+once. However, it is not wise to select lot of files for TAP at once -
+because
+all will go in single TAP file. Best way is as it is shown on pic.
+above - first select BASIC loader and then CODE (after it). Most of
+programs is recorded so. </small></big><span style="color: rgb(0, 0, 102);">'</span><span style="text-decoration: underline; color: rgb(0, 0, 102);">Erase sel.</span><span style="color: rgb(0, 0, 102);">' is for erasing
+ZX files. It works little unusual - may erasing only last file in
+charea. But you may select again multiple files, just select them in
+order from last to up - may select from different chareas at once.</span><br style="color: rgb(0, 0, 102);">
+<span style="color: rgb(0, 0, 102);">With click on '</span><span style="text-decoration: underline; color: rgb(0, 0, 102);">Chareas</span><span style="color: rgb(0, 0, 102);">'
+program will set segment for just currently selected charea - to make
+easy save/write of individual chareas of drives.</span><br>
+<br>
+<span style="font-weight: bold; color: rgb(0, 0, 0);">PC &gt; ZX:<br>
+</span><span style="color: rgb(0, 0, 102);">Click on '<span style="text-decoration: underline;">PC &gt; Cha.</span>' button, and
+may
+select multiple files with KDE fileselector:<br>
+<img alt="zxfstap.png" src="zxfstap.png" align="left" border="4" height="384" hspace="8" vspace="8" width="584"><br>
+Supported filetypes are: <span style="font-weight: bold;">SCR</span> -
+ZX screen, exactly 6912 bytes long. <span style="font-weight: bold;">SNA</span>
+- old snapshot files.&nbsp; <span style="font-weight: bold;">Z80</span>
+snapshot - V 1.45, V 2.01 &amp; V 3.0 ,
+only for 48K, for now. Plus <span style="font-weight: bold;">TAP</span>
+files and <span style="font-weight: bold;">BIN</span>ary files - bin
+ones
+will be copied directly as CODE files, with start address 25000, max
+len. 48KB. Transfer mode depends on file extension. Because authors of
+software, and
+especially 'authors' of TAP files had pretty limited naming
+imagination, and to prevent to see too often message like: <b>"NAME EXISTS"</b> I implemented some autonaming system. In case
+of
+duplicate name in TAP file, prog. will rename it to re.xxx.PCfilename .
+'re' may be changed in editbox <u>'Rename:'</u>. xxx is auto-counter
+in range 1 to 255. If begin character is illegal (not A-z, 0-9)
+it will be changed to 9. Codes above 127 and below 32 in filenames will
+be changed to '<span style="font-weight: bold;">?</span>'- to make edit
+easier.<br>
+After getting such renamed files it is good to correct BASIC loader,
+and save datas with some meaningful names: Corrections will be needed
+for commands like: LOAD "" -
+it is not allowed by disk systems, so enter in brackets filename. Mine
+ROM also not accepts LOAD "pic" SCREEN$ - change it to LOAD "pic" CODE
+[16384] . Luckily, ZX filesystem is case sensitive, so you may play
+with RePTON, rEpToN etc... .<br>
+In some cases transferred snapshot will not work - it is because of
+limited hardware. Stack may be overloaded. In such case help is to make
+another snapshot file on PC (looking for another on WEB). Rule is: make
+snapshot when game is paused.&nbsp; In case of 'Name already exists' by
+snapshots just simple rename PC file...<br>
+Some TAP files have headerless (and nameless) parts - such blocks will
+be transferred
+to files with names: hl.1.PCfilename, hl.2.PCfilename etc. Of course,
+here is also possible to change prefix 'hl' to different - editbox <u>'H'less:'</u>.
+User must find way how to make later load of those files normally
+- some machine code knowledge is necessary. <br>
+For experts: If I reg points to ROM, it must be #39 for IM 2 mode,
+because ROM is full with code.
+</span><span style="font-weight: bold; color: rgb(0, 0, 0);"></span><br>
+<br>
+<br>
+</big>
+<div style="text-align: center;"><big style="color: rgb(102, 51, 51);"><big style="font-weight: bold;">Image creation:<br>
+</big></big>
+<div style="text-align: left;"><big><span style="color: rgb(0, 0, 102);">In
+main window, at bottom right is button '</span><span style="text-decoration: underline; color: rgb(0, 0, 102);">Create empty img</span><span style="color: rgb(0, 0, 102);">' . It will create empty image file in
+format according to settings in box 'Image format', with geometry by
+settings in box 'CHS setting'. </span><br style="color: rgb(0, 0, 102);">
+<span style="color: rgb(0, 0, 102);">Recomended is usage of HDF format
+- it holds all necessary parameters. For 8-bit simple IF&nbsp; HDF 256
+format is required.</span></big><br>
+</div>
+</div>
+<big style="color: rgb(0, 0, 153);"><br>
+</big>
+<div style="text-align: center;"><big style="font-weight: bold; color: rgb(102, 51, 51);"><big>Initialization
+of ZX disk or image file:</big><br>
+<br>
+</big></div>
+<img alt="drinit.png" src="drimlin3.png" style="border: 4px solid ; float: left; color: rgb(0, 0, 102);" border="4" height="612" hspace="8" vspace="8" width="396">
+<big style="color: rgb(0, 0, 153);"><span style="color: rgb(0, 0, 102);"><br>
+Before
+usage, disk (media) must be
+initialized, what means creating of filesystem. It is something like
+partitioning on PC.<br>
+&nbsp;Select drive or Open image file. Set geometry by
+need (it can't be autodetected in some cases). For zxcflba.rom (CF
+interface) click button '<span style="text-decoration: underline;">LBA</span>'
+- it will set correct parameters for init (32 sec/tr &amp; 8 heads).
+Check is Image format
+correct (for 8-bit simple IF it must be HDF 256). Then click on '</span><span style="text-decoration: underline; color: rgb(0, 0, 102);">Init ZX FS</span><span style="color: rgb(0, 0, 102);">' at bottom right.</span><br style="color: rgb(0, 0, 102);">
+<span style="color: rgb(0, 0, 102);">Program divides space by criteria
+how
+much begin
+letter is common. So, much more space for S than for Q.</span><br style="color: rgb(0, 0, 102);">
+<span style="color: rgb(0, 0, 102);">In listbox is begin letter, then
+total capacity of it's charea and
+number of CAT slots - so much files can be stored there. By clicking on
+charea in listbox it's parameters will appear in setboxes right. There
+may adjust size and slot count. Lower will see total size of all
+chareas. Most important is to watch 'Free:' indicator. If it go in
+negative, you must decrease size of some charea(s). Otherwise last
+charea(s) will be outside of disks capacity.</span><br style="color: rgb(0, 0, 102);">
+<span style="color: rgb(0, 0, 102);">Small setbox 'Data at:' is for
+setting start cylinder of first charea.
+It is standardly 1, but in some cases may be bigger, up to 9. Can't be
+0 (at start is Master CAT). After writing in value click on&nbsp; '</span><span style="text-decoration: underline; color: rgb(0, 0, 102);">Data at:</span><span style="color: rgb(0, 0, 102);">' to enter it. And may need to decrease
+some sizes after...<br>
+Old filesystem has some limitations: max size of charea is 32MB by CF
+and
+16-bit IF, and 16MB by 8-bit simple IF.<br>
+Count of CAT slots is limited to 4064/2032. Still, there is lot of
+space: in 16MB can fit over 330 snapshot. Max size of drive/media what
+can be fully used is about 1.1 GB.<br><b>
+New filesystem</b> with big sectors has max charea sizes of 64MB for all
+types
+of interfaces. Check '<u>Big Sectors</u>' for such ROMs before Perform init. It
+has sense only
+for larger drives/medias - over 500MB. Fillable media size is then 2.2
+GB (4.4 GB
+for 8-bit IF). <br>
+<br style="color: rgb(0, 0, 102);">
+</span><span style="color: rgb(0, 0, 102);">With click on button "<u>Perform INIT</u>", and confirmation, disk/image will
+be initalized and ready for usage. You may imediately check it by
+entering 'File transfer' .</span><br style="color: rgb(0, 0, 102);">
+<br>
+<br>
+&nbsp;&nbsp;&nbsp; <span style="color: rgb(0, 0, 102);">Dec. 2006&nbsp; P. Putnik</span><br>
+<br>
+
+<br>
+
+<br>
+
+
+
+</big></div>
+</div>
+</body></html>
