@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>aboutForm</class>
+ <widget class="QDialog" name="aboutForm">
+  <property name="windowTitle">
+   <string>About Drive Image</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLabel" name="textLabel1">
+     <property name="font">
+      <font>
+       <pointsize>9</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Drive Imaging, file transfer &amp; partition extract</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="textLabel1_2">
+     <property name="text">
+      <string>V 0.86</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="textLabel2">
+     <property name="text">
+      <string>by P. Putnik   2006-7</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="KURLLabel" name="kURLLabel1" native="true">
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <underline>true</underline>
+      </font>
+     </property>
+     <property name="text" stdset="0">
+      <string>http://www.ppest.org</string>
+     </property>
+     <property name="url" stdset="0">
+      <string>http://www.ppest.org</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="aboexButton">
+     <property name="text">
+      <string>E&amp;XIT</string>
+     </property>
+     <property name="shortcut">
+      <string>Alt+X</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <pixmapfunction>qPixmapFromMimeSource</pixmapfunction>
+ <customwidgets>
+  <customwidget>
+   <class>KURLLabel</class>
+   <extends>QWidget</extends>
+   <header>kurllabel.h</header>
+  </customwidget>
+ </customwidgets>
+ <includes>
+  <include location="local">kurllabel.h</include>
+ </includes>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>aboexButton</sender>
+   <signal>clicked()</signal>
+   <receiver>aboutForm</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>kURLLabel1</sender>
+   <signal>leftClickedURL(QString)</signal>
+   <receiver>aboutForm</receiver>
+   <slot>kURLLabel1_leftClickedURL(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
