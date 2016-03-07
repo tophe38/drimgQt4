@@ -24,10 +24,6 @@
 //#include <qbuttongroup.h>
 #include <qcheckbox.h>
 #include <qwidget.h>
-#include <kapp.h>
-#include <klocale.h>
-#include <kfile.h>
-#include <kfiledialog.h>
 #include <qpushbutton.h>
 #include <qbuttongroup.h>
 #include <qcheckbox.h>
@@ -37,15 +33,19 @@
 
 #include "ui_initZdlg4.h"
 
+#include <QDialog>
+
+//int fileclo(int fd);
+
+namespace Ui {
+    class initZbase;
+}
 
 
-int fileclo(int fd);
 
-
-
-
-class iniZ: public initZbase {
-Q_OBJECT
+class iniZ: public  QDialog
+{
+    Q_OBJECT
 public:
     iniZ(QWidget *parent = 0, const char *name = 0);
     void calctot();
@@ -61,6 +61,9 @@ public slots:
     virtual void dasdBut_clicked();
     virtual void dataatBut_clicked();
     virtual void listBox1_clicked(QListBoxItem*);
+protected:
+   Ui::initZbase *ui;
+
 };
 
 #endif

@@ -17,36 +17,16 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
-
-
 #ifndef _DRIMGWIDGET_H_
 #define _DRIMGWIDGET_H_
 
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
-
-
 #include <qwidget.h>
-//#include <kapp.h>
-//#include <klocale.h>
-//#include <kfile.h>
-//#include <kfiledialog.h>
 #include <qpushbutton.h>
 #include <qbuttongroup.h>
 #include <qcheckbox.h>
 #include <qradiobutton.h>
-//#include <stdlib.h>
-//#include <kaboutdialog.h>
-
-//#include <kapplication.h>
-//#include <kstatusbar.h>
-//#include <kmainwindow.h>
 #include <qapplication.h>
 #include <qeventloop.h>
-//#include <qtcore.h>
-
-//#include "sg_cmds.h"
 #include <errno.h>
 
 #include <stdio.h>
@@ -61,15 +41,17 @@
 
 #include <linux/unistd.h>
 
-
-#include "drimgwidgetbase.h"
+#include <QWidget>
 
 class QAboutDialog;
+class QListBoxItem;
+
+namespace Ui {
+    class drimgwidgetbase;
+}
 
 
-class drimgWidget : public drimgWidgetBase
-
-
+class drimgWidget : public QWidget
 {
     Q_OBJECT
 
@@ -79,7 +61,7 @@ private:
 	
 	
 public:
-    drimgWidget(QWidget* parent = 0, const char* name = 0, Qt::WindowFlags fl = 0 );
+    drimgWidget(QWidget* parent = 0);
    ~drimgWidget();
     
    // drimgWidget(QWidget* parent = 0, const char* name = 0 );
@@ -123,7 +105,7 @@ public slots:
     
     
 protected:
-    /*$PROTECTED_FUNCTIONS$*/
+   Ui::drimgwidgetbase *ui;
 
 protected slots:
     /*$PROTECTED_SLOTS$*/

@@ -26,6 +26,7 @@
 #include "transferz.h"
 #include "iniz.h"
 
+#include "ui_tranZ4.h"
 
 
 
@@ -313,8 +314,9 @@ void transferZ::updatcc() {
 
 
 
-transferZ::transferZ(QWidget *parent, const char *name)
-    :tranZDlg(parent, name)
+transferZ::transferZ(QWidget *parent) :
+    QDialog(parent),
+    ui( new Ui::tranZDlg)
 {
 	chaLB->clear();
 	catLB->clear();

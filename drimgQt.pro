@@ -15,7 +15,6 @@ TEMPLATE = app
 SOURCES +=\
     about.cpp \
     aboutDlg.cpp \
-    drimg.cpp \
     drimgwidget.cpp \
     drimgwidgetbase.cpp \
     gemd.cpp \
@@ -30,12 +29,12 @@ SOURCES +=\
 HEADERS  += \ 
     about.h \
     aboutDlg.h \
-    drimg.h \
     drimgwidget.h \
     drimgwidgetbase.h \
     gemd.h \
     iniz.h \
-    transferz.h
+    transferz.h \
+    resources.h
 
 FORMS    += \ 
     about4.ui \
@@ -44,4 +43,7 @@ FORMS    += \
     gemdDlg4.ui \
     initZdlg4.ui \
     tranZ4.ui
+
+DISTFILES += \
+    resources.rc
 

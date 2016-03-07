@@ -26,14 +26,17 @@
 #include <qwidget.h>
 #include <qpushbutton.h>
 
+#include <QDialog>
 
+namespace Ui {
+    class tranZDlg;
+}
 
-#include "ui_tranZ4.h"
-
-class transferZ: public tranZDlg {
-Q_OBJECT
+class transferZ: public  QDialog
+{
+    Q_OBJECT
 public:
-    transferZ(QWidget *parent = 0, const char *name = 0);
+    transferZ(QWidget *parent = 0);
     void printuf();
     void decomp();
     void updatcc();
@@ -52,8 +55,9 @@ public slots:
    // virtual void catLB_pressed(QListBoxItem*,const QPoint&);
     virtual void catLB_clicked(QListBoxItem*);
 
-   
-	    
+protected:
+   Ui::tranZDlg *ui;
+
 };
 
 #endif

@@ -25,18 +25,20 @@
 #include <string.h>
 #include <fcntl.h>
 #include <qwidget.h>
-#include <kapp.h>
-#include <klocale.h>
-#include <kfile.h>
-#include <kfiledialog.h>
 #include <qpushbutton.h>
 
-#include "gemdDlg.h"
+#include "ui_gemdDlg4.h"
 
-class gemd: public gemdBase {
+#include <QDialog>
+
+namespace Ui {
+    class gemdBase;
+}
+
+class gemd: public QDialog{
 Q_OBJECT
 public:
-    gemd(QWidget *parent = 0, const char *name = 0);
+    gemd(QWidget *parent = 0);
     
     
     void ShowUF();
@@ -62,6 +64,9 @@ public:
     virtual void filesLB_doubleClicked(QListBoxItem*);
     virtual void timeCB_clicked();
     virtual void partsBut_clicked();
+protected:
+   Ui::gemdBase *ui;
+
 };
 
 #endif

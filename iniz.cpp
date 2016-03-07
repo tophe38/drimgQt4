@@ -22,8 +22,9 @@
 #include "iniz.h"
 #include <qcursor.h>
 #include <qlabel.h>
-#include <kmessagebox.h>
 #include <qlineedit.h>
+
+#include "ui_initZdlg4.h"
 
 typedef unsigned char  byte;
 
@@ -191,8 +192,9 @@ void iniZ::getkb1()
 
 
 
-iniZ::iniZ(QWidget *parent, const char *name)
-    :initZbase(parent, name)
+iniZ::iniZ(QWidget *parent) :
+    QDialog(parent),
+    ui( new Ui::initZbase)
 {
     //WM_INITDIALOG:
 

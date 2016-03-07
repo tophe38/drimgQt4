@@ -2,6 +2,14 @@
 <ui version="4.0">
  <class>drimgwidgetbase</class>
  <widget class="QWidget" name="drimgwidgetbase">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>679</width>
+    <height>406</height>
+   </rect>
+  </property>
   <property name="windowTitle">
    <string>Drive Imaging, file transfer &amp; partition extract  V 0.86  PP 2006-7</string>
   </property>
@@ -21,10 +29,7 @@
         </widget>
        </item>
        <item>
-        <widget class="Q3ListBox" name="listBox1" native="true"/>
-       </item>
-       <item>
-        <widget class="QListWidget" name="listWidget"/>
+        <widget class="QListWidget" name="listBox1"/>
        </item>
        <item>
         <widget class="QPushButton" name="refrButton">
@@ -2162,9 +2167,9 @@
      <item>
       <layout class="QVBoxLayout" name="verticalLayout_4">
        <item>
-        <widget class="Q3ProgressBar" name="progressBar1" native="true">
-         <property name="progress" stdset="0">
-          <number>7</number>
+        <widget class="QProgressBar" name="progressBar1">
+         <property name="value">
+          <number>24</number>
          </property>
         </widget>
        </item>
@@ -2644,18 +2649,6 @@
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <customwidgets>
-  <customwidget>
-   <class>Q3ProgressBar</class>
-   <extends>QWidget</extends>
-   <header>q3progressbar.h</header>
-  </customwidget>
-  <customwidget>
-   <class>Q3ListBox</class>
-   <extends>QWidget</extends>
-   <header>q3listbox.h</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections>
   <connection>
@@ -2791,22 +2784,6 @@
    <signal>clicked()</signal>
    <receiver>drimgwidgetbase</receiver>
    <slot>abortButton_clicked()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>20</x>
-     <y>20</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>20</x>
-     <y>20</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>listBox1</sender>
-   <signal>clicked(Q3ListBoxItem*)</signal>
-   <receiver>drimgwidgetbase</receiver>
-   <slot>listBox1_clicked(Q3ListBoxItem*)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>20</x>

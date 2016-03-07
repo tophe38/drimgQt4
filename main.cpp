@@ -23,6 +23,8 @@
 //#include <kcmdlineargs.h>
 //#include <klocale.h>
 
+#include "resources.h"
+
    
 #include "drimgwidget.h" // Must after global var declarations!
 
@@ -31,45 +33,40 @@
 //#include <qmultilineedit.h>
 #include <qcombobox.h>
 
-
-static const char description[] =
-    I18N_NOOP("A KDE KPart Application");
-
-static const char version[] = "0.1";
-
-static KCmdLineOptions options[] =
-{
-//    { "+[URL]", I18N_NOOP( "Document to open" ), 0 },
-    KCmdLineLastOption
-};
-	
 	
 int main(int argc, char **argv)
 {
-    KAboutData about("drimg", I18N_NOOP("drimg"), version, description,
-                     KAboutData::License_GPL, "(C) 2006 P. Putnik", 0, 0, "pp@ppest.org");
-    about.addAuthor( "P. Putnik", 0, "pp@ppest.org" );
-    KCmdLineArgs::init(argc, argv, &about);
-    KCmdLineArgs::addCmdLineOptions( options );
-    KApplication app;
-    static drimgWidget *mainWin = 0;
-    
+    QApplication a(argc, argv);
+    //
+    a.setApplicationName( VER_INTERNALNAME_STR );
+    a.setApplicationVersion( VER_PRODUCTVERSION_STR );
+    a.setOrganizationName( VER_COMPANYNAME_STR );
+    a.setOrganizationDomain( VER_COMPANYDOMAIN_STR );
+    a.setWindowIcon( QIcon(":/LogoApp48") );
 
+    MainWindow w;
+    w.setWindowTitle( VER_FILEDESCRIPTION_STR );
+    w.show();
+
+    try
     {
-        // no session.. just start up normally
-        KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-
-        /// @todo do something with the command line args here
-
-        mainWin = new drimgWidget();
-        app.setMainWidget( mainWin );
-        mainWin->show();
-
-		
-        args->clear();
+        return a.exec();
+    }
+    catch(QString& E)
+    {
+        qDebug() << QString("Exception(str) : %1").arg(E);
+        return -1;
+    }
+    catch(std::exception& E)
+    {
+        qDebug() << QString("Exception(ex) : %1").arg(E.what());
+        return -1;
+    }
+    catch(...)
+    {
+        qDebug() << QString("Exception  : unknown");
+        return -1;
     }
 
-    // mainWin has WDestructiveClose flag by default, so it will delete itself.
-    return app.exec();
 }
 

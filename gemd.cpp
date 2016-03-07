@@ -869,8 +869,9 @@ void gemd::loadroot()
 
 
 
-gemd::gemd(QWidget *parent, const char *name)
-    :gemdBase(parent, name)
+gemd::gemd(QWidget *parent) :
+    QDialog(parent),
+    ui( new Ui::gemdBase)
 {
 	
 	
